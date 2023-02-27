@@ -3,13 +3,14 @@ import { galleryItems } from "./gallery-items.js";
 const gallery = document.querySelector(".gallery");
 const photosMarkup = createPhotosMarkup(galleryItems);
 
-gallery.insertAdjacentHTML('beforeend', photosMarkup)
+gallery.insertAdjacentHTML("beforeend", photosMarkup);
 
-gallery.addEventListener('click', onPhotoClick)
+gallery.addEventListener("click", onPhotoClick);
 
 function createPhotosMarkup(photos) {
-  return photos.map(({ preview, original, description }) => {
-    return `
+  return photos
+    .map(({ preview, original, description }) => {
+      return `
         <div class="gallery__item">
             <a class="gallery__link" href="${original}">
                 <img
@@ -20,7 +21,8 @@ function createPhotosMarkup(photos) {
                 />
             </a>
         </div>`;
-  }).join('')
+    })
+    .join("");
 }
 
 // function onPhotoClick(event) {
